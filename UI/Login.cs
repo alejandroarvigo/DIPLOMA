@@ -17,7 +17,6 @@ namespace UI
     public partial class Login : Form
     {
 
-        private readonly ReservaManager reservaManager;
         string cultureInfo = Thread.CurrentThread.CurrentUICulture.Name;
         ResourceManager idioma;
         public void populateLanguageCombobox()
@@ -35,7 +34,6 @@ namespace UI
             InitializeComponent();
             populateLanguageCombobox();
             idioma = FacadeService.Translate(cultureInfo);
-            reservaManager = new ReservaManager();
             Translate();
         }
 
@@ -80,45 +78,6 @@ namespace UI
             idioma = FacadeService.Translate(language.Value);
             Translate();
         }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-            var cliente = new Cliente { Apellido = "Arvigo", Dni = 11111111, FechaNacimiento = DateTime.Now, Nombre = "Alejandro" };
-
-            var Habitacion = new Habitacion { Capacidad = 1, Costo = 200, Detalle = "Prueba", NumeroHabitacion = 101 };
-
-            var Estacionamiento = new Estacionamiento { Costo = 2, EstacionamientoSize = EstacionamientoSize.Mediano, Id = 3, Slot = 2 };
-
-            var reserva = new Reserva
-            {
-                FechaInicio = DateTime.Today,
-                FechaFin = DateTime.Today.AddDays(3),
-                Estado = EstadoReserva.Reservada,
-                Habitacion = Habitacion,
-                Cliente = cliente,
-                Estacionamiento = Estacionamiento, // ID del estacionamiento
-            };
-
-            try
-            {
-                reservaManager.reserveRoom(reserva);
-            }
-            catch
-            {
-                //Loguear el error
-            }
-            finally
-            {
-
-            }
-
-
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-        }
+  
     }
 }

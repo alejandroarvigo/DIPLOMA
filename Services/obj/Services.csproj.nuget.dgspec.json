@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alear\\Downloads\\HotelService\\Services\\Services.csproj": {}
+    "C:\\Users\\alear\\Desktop\\HotelService\\Services\\Services.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alear\\Downloads\\HotelService\\Services\\Services.csproj": {
+    "C:\\Users\\alear\\Desktop\\HotelService\\Services\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alear\\Downloads\\HotelService\\Services\\Services.csproj",
+        "projectUniqueName": "C:\\Users\\alear\\Desktop\\HotelService\\Services\\Services.csproj",
         "projectName": "Services",
-        "projectPath": "C:\\Users\\alear\\Downloads\\HotelService\\Services\\Services.csproj",
+        "projectPath": "C:\\Users\\alear\\Desktop\\HotelService\\Services\\Services.csproj",
         "packagesPath": "C:\\Users\\alear\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alear\\Downloads\\HotelService\\Services\\obj\\",
+        "outputPath": "C:\\Users\\alear\\Desktop\\HotelService\\Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alear\\AppData\\Roaming\\NuGet\\NuGet.Config",

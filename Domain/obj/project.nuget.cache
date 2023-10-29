@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "APOC+nDJzOElpKoSf+ntjdx/jaQ6cUBKdeOK0vv82AGwJuXqTB+TBmA3K5OLFfbk8qgsLrUpgzk5KD/19w6acQ==",
+  "dgSpecHash": "gdWTJCJhjSdICVg0MGKep+NjpuewxzPSonVmmRvqJf/tPe1YV0GyORr3HyyvXmIGt5+tG/2KXTZI4GlHy4XaXA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\alear\\Downloads\\HotelService\\Domain\\Domain.csproj",
+  "projectFilePath": "C:\\Users\\alear\\Desktop\\HotelService\\Domain\\Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

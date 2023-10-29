@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alear\\Downloads\\HotelService\\BLL\\BLL.csproj": {}
+    "C:\\Users\\alear\\Desktop\\HotelService\\BLL\\BLL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alear\\Downloads\\HotelService\\BLL\\BLL.csproj": {
+    "C:\\Users\\alear\\Desktop\\HotelService\\BLL\\BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alear\\Downloads\\HotelService\\BLL\\BLL.csproj",
+        "projectUniqueName": "C:\\Users\\alear\\Desktop\\HotelService\\BLL\\BLL.csproj",
         "projectName": "BLL",
-        "projectPath": "C:\\Users\\alear\\Downloads\\HotelService\\BLL\\BLL.csproj",
+        "projectPath": "C:\\Users\\alear\\Desktop\\HotelService\\BLL\\BLL.csproj",
         "packagesPath": "C:\\Users\\alear\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alear\\Downloads\\HotelService\\BLL\\obj\\",
+        "outputPath": "C:\\Users\\alear\\Desktop\\HotelService\\BLL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alear\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\alear\\Downloads\\HotelService\\DAL\\DAL.csproj": {
-                "projectPath": "C:\\Users\\alear\\Downloads\\HotelService\\DAL\\DAL.csproj"
+              "C:\\Users\\alear\\Desktop\\HotelService\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\alear\\Desktop\\HotelService\\DAL\\DAL.csproj"
               },
-              "C:\\Users\\alear\\Downloads\\HotelService\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\alear\\Downloads\\HotelService\\Domain\\Domain.csproj"
+              "C:\\Users\\alear\\Desktop\\HotelService\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\alear\\Desktop\\HotelService\\Domain\\Domain.csproj"
               }
             }
           }
@@ -66,14 +66,14 @@
         }
       }
     },
-    "C:\\Users\\alear\\Downloads\\HotelService\\DAL\\DAL.csproj": {
+    "C:\\Users\\alear\\Desktop\\HotelService\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alear\\Downloads\\HotelService\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\alear\\Desktop\\HotelService\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\alear\\Downloads\\HotelService\\DAL\\DAL.csproj",
+        "projectPath": "C:\\Users\\alear\\Desktop\\HotelService\\DAL\\DAL.csproj",
         "packagesPath": "C:\\Users\\alear\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alear\\Downloads\\HotelService\\DAL\\obj\\",
+        "outputPath": "C:\\Users\\alear\\Desktop\\HotelService\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alear\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -90,8 +90,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\alear\\Downloads\\HotelService\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\alear\\Downloads\\HotelService\\Domain\\Domain.csproj"
+              "C:\\Users\\alear\\Desktop\\HotelService\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\alear\\Desktop\\HotelService\\Domain\\Domain.csproj"
               }
             }
           }
@@ -135,14 +135,14 @@
         }
       }
     },
-    "C:\\Users\\alear\\Downloads\\HotelService\\Domain\\Domain.csproj": {
+    "C:\\Users\\alear\\Desktop\\HotelService\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alear\\Downloads\\HotelService\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\alear\\Desktop\\HotelService\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\alear\\Downloads\\HotelService\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\alear\\Desktop\\HotelService\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\alear\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alear\\Downloads\\HotelService\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\alear\\Desktop\\HotelService\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alear\\AppData\\Roaming\\NuGet\\NuGet.Config",

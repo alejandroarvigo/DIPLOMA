@@ -10,15 +10,27 @@ namespace BLL
         ReservaRepository reservaRepository = new ReservaRepository();
         public void reserveRoom(Reserva reserva)
         {
+            if (reserva == null)
+            {
+                throw new ArgumentNullException("reserva", "La reserva no puede ser nula.");
+            }
+
+            if (reserva.FechaInicio == null || reserva.FechaFin == null)
+            {
+                throw new ArgumentException("Las fechas de inicio y fin son obligatorias.");
+            }
+
+            if (reserva.Cliente == null)
+            {
+                throw new ArgumentException("El cliente es obligatorio para realizar una reserva.");
+            }
+
+            if (reserva.Habitacion == null)
+            {
+                throw new ArgumentException("La habitación es obligatoria para realizar una reserva.");
+            }
+
             reservaRepository.reserveRoom(reserva);
-        }
-
-        public Reserva[] getReservas() { return reservaRepository.getReservas(); }
-
-
-        public void getFreeRooms(DateTime fecha1, DateTime fecha2)
-        {
-            Reserva[] reservas = this.getReservas();
         }
 
         public Habitacion[] GetHabitacionesDisponiblesBetweenDates(DateTime fechaInicio, DateTime fechaFin)
