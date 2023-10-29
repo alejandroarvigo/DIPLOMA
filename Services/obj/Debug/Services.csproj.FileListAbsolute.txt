@@ -1,0 +1,14 @@
+C:\Users\alear\Downloads\HotelService\Services\bin\Debug\Services.dll
+C:\Users\alear\Downloads\HotelService\Services\bin\Debug\Services.pdb
+C:\Users\alear\Downloads\HotelService\Services\bin\Debug\es-ES\Services.resources.dll
+C:\Users\alear\Downloads\HotelService\Services\bin\Debug\en-US\Services.resources.dll
+C:\Users\alear\Downloads\HotelService\Services\obj\Debug\Services.csproj.AssemblyReference.cache
+C:\Users\alear\Downloads\HotelService\Services\obj\Debug\Services.DAL.i18n.Idioma.resources
+C:\Users\alear\Downloads\HotelService\Services\obj\Debug\Services.DAL.i18n.Idioma.es-ES.resources
+C:\Users\alear\Downloads\HotelService\Services\obj\Debug\Services.DAL.i18n.Idioma.en-US.resources
+C:\Users\alear\Downloads\HotelService\Services\obj\Debug\Services.csproj.GenerateResource.cache
+C:\Users\alear\Downloads\HotelService\Services\obj\Debug\Services.csproj.CoreCompileInputs.cache
+C:\Users\alear\Downloads\HotelService\Services\obj\Debug\es-ES\Services.resources.dll
+C:\Users\alear\Downloads\HotelService\Services\obj\Debug\en-US\Services.resources.dll
+C:\Users\alear\Downloads\HotelService\Services\obj\Debug\Services.dll
+C:\Users\alear\Downloads\HotelService\Services\obj\Debug\Services.pdb

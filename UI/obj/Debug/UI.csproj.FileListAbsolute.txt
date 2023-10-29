@@ -1,0 +1,5 @@
+C:\Users\alear\Downloads\HotelService\UI\obj\Debug\UI.csproj.AssemblyReference.cache
+C:\Users\alear\Downloads\HotelService\UI\obj\Debug\UI.Form1.resources
+C:\Users\alear\Downloads\HotelService\UI\obj\Debug\UI.Properties.Resources.resources
+C:\Users\alear\Downloads\HotelService\UI\obj\Debug\UI.csproj.GenerateResource.cache
+C:\Users\alear\Downloads\HotelService\UI\obj\Debug\UI.csproj.CoreCompileInputs.cache
