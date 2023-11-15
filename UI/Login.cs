@@ -41,19 +41,19 @@ namespace UI
         {
             Usuario user = new Usuario { Nombre = "SuperAdmin", Password = "123123123123" };
 
-            LoginService.Register(user);
+            //LoginService.Register(user);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Usuario user = new Usuario { Nombre = textBox1.Text.Trim(), Password = textBox2.Text.Trim() };
+            Usuario user = new Usuario { NameUsuario = textBox1.Text.Trim(), Password = textBox2.Text.Trim() };
 
-            bool logged = LoginService.Login(user);
+            Usuario userLogged = LoginService.Current.Login(user);
 
-            if (true) //logged is the variable to determine this condition
+            if (userLogged != null) 
             {
-                HabitacionesHome formulario2 = new HabitacionesHome();
-                formulario2.Show(); // Abre el formulario 2
+                HabitacionesHome RoomHomeScreen = new HabitacionesHome();
+                RoomHomeScreen.Show();
                 this.Hide();
             }
             else
@@ -78,6 +78,18 @@ namespace UI
             idioma = FacadeService.Translate(language.Value);
             Translate();
         }
-  
+
+        private bool verificarCampos()
+        {
+            if ((textBox1.Text.Length == 0) || (textBox2.Text.Length == 0))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
     }
 }

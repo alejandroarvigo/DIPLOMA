@@ -12,7 +12,7 @@ namespace Services.DAL.Tools
 
         static SqlHelper()
         {
-            conString = ConfigurationManager.ConnectionStrings["ServicesConString"].ConnectionString;
+            conString = ConfigurationManager.ConnectionStrings["PermisosConString"].ConnectionString;
         }
         public static Int32 ExecuteNonQuery(String commandText,
             CommandType commandType, params SqlParameter[] parameters)
@@ -23,8 +23,6 @@ namespace Services.DAL.Tools
             {
                 using (SqlCommand cmd = new SqlCommand(commandText, conn))
                 {
-                    // There're three command types: StoredProcedure, Text, TableDirect. The TableDirect 
-                    // type is only for OLE DB.  
                     cmd.CommandType = commandType;
                     cmd.Parameters.AddRange(parameters);
 
@@ -45,9 +43,7 @@ namespace Services.DAL.Tools
             }
         }
 
-        /// <summary>
-        /// Set the connection, command, and then execute the command and only return one value.
-        /// </summary>
+
         public static Object ExecuteScalar(String commandText,
             CommandType commandType, params SqlParameter[] parameters)
         {
@@ -64,9 +60,6 @@ namespace Services.DAL.Tools
             }
         }
 
-        /// <summary>
-        /// Set the connection, command, and then execute the command with query and return the reader.
-        /// </summary>
         public static SqlDataReader ExecuteReader(String commandText,
             CommandType commandType, params SqlParameter[] parameters)
         {
@@ -78,8 +71,6 @@ namespace Services.DAL.Tools
                 cmd.Parameters.AddRange(parameters);
 
                 conn.Open();
-                // When using CommandBehavior.CloseConnection, the connection will be closed when the 
-                // IDataReader is closed.
                 SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
 
                 return reader;

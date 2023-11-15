@@ -1,54 +1,42 @@
-﻿using Services.DAL.Tools;
+﻿using Services.DAL.Factory;
+using Services.DAL.Implementations;
+using Services.DAL.Tools;
 using Services.Domain.Security.Composite;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Services.Services
 {
-    public static class LoginService
+    public class LoginService
     {
-        public static bool Register(Usuario usuario)
+
+        #region Singleton
+        private readonly static LoginService _instance = new LoginService();
+        private FactoryDAL instancia;
+
+        public static LoginService Current
         {
-            return DAL.Implementations.UsuarioRepository.Current.Add(usuario);
-        }
-        public static bool Login(Usuario usuario)
-        {
-            try {
-                DAL.Implementations.UsuarioRepository.Current.Login(usuario);
-                return true;
+            get
+            {
+                return _instance;
             }
-            catch (Exception ex){
-                return false;
-            }
- 
         }
 
-        public static Patente SelectOnePatente(Guid id)
+        private LoginService()
         {
-            return null;
-            //return DAL.Implementations.PatenteRepository.Current.SelectOne(id);
+            instancia = FactoryDAL.Current;
         }
+        #endregion
 
-        public static Usuario SelectOneUsuario(Guid id)
+
+        public bool Register(Usuario usuario)
         {
-            return null;
-            //return DAL.Implementations.UsuarioRepository.Current.SelectOne(id);
+            //return DAL.Implementations.UsuarioRepository.Current.Add(usuario);
+            return false;
         }
-
-        public static IEnumerable<Patente> SelectAllPatentes()
+        public Usuario Login(Usuario usuario)
         {
-            return null;
-            //return DAL.Implementations.PatenteRepository.Current.SelectAll();
-        }
-
-        public static Familia SelectOneFamilia(Guid id)
-        {
-            return null;
-            //return DAL.Implementations.FamiliaRepository.Current.SelectOne(id);
+           return instancia.GetUsersRepository().Login(usuario);
         }
 
     }

@@ -10,8 +10,17 @@ namespace Services.Domain.Security.Composite
     public class Usuario
     {
         public string IdUsuario { get; set; }
+
+        public string NameUsuario { get; set; }
         public string Nombre { get; set; }
+
+        public string Apellido { get; set; }
         public string Password { get; set; }
+
+        public string Email { get; set; }
+
+        public int Dgv { get; set; }
+
 
         public string HashPassword
         {

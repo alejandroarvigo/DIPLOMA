@@ -2,117 +2,124 @@
 using Services.Domain.Security.Composite;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 
 namespace Services.DAL.Implementations
 {
-    internal sealed class UsuarioRepository : IGenericRepository<Usuario>
+    public class UsuarioRepository : IGenericRepository<Usuario>
     {
-        #region Singleton
-        private readonly static UsuarioRepository _instance = new UsuarioRepository();
+        private readonly string connectionString;
 
-        public static UsuarioRepository Current
+        public UsuarioRepository()
         {
-            get
-            {
-                return _instance;
-            }
-        }
-        #endregion
-
-        private string InsertStatement
-        {
-            get => "INSERT INTO [dbo].[Usuario] (Name, Password) VALUES (@Name, @Password)";
-        }
-
-        private string SelectOneStatement
-        {
-            get => "Usuario_Select";
-        }
-
-        private string LoginSelectStatement
-        {
-            get => "SELECT Id, Name, Password FROM [dbo].[Usuario] " +
-                "WHERE Name = @Name " +
-                "AND Password = @Password ";
-        }
-
-        private UsuarioRepository()
-        {
-            //Implement here the initialization code
+            this.connectionString = ConfigurationManager.ConnectionStrings["PermisosConString"].ConnectionString;
         }
 
         public bool Add(Usuario obj)
         {
-            try
+            // Implementa la lógica para agregar un usuario
+            throw new NotImplementedException();
+        }
+
+        public Usuario Login(Usuario obj)
+        {
+            if (String.IsNullOrEmpty(obj.NameUsuario) || String.IsNullOrEmpty(obj.Password))
             {
-                using (var reader = SqlHelper.ExecuteReader(InsertStatement, System.Data.CommandType.Text,
-                                                new SqlParameter[] { new SqlParameter("@Name", obj.Nombre), new SqlParameter("@Password", obj.Password)}))
+                throw new Exception("UsuarioNombre y PasswordHash no pueden ser nulos o vacíos.");
+            }
+
+            Usuario usuario = null;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = connection.CreateCommand())
                 {
-                    return true;
+                    command.CommandText = "SELECT * FROM Usuarios WHERE Usuario = @Usuario AND PasswordHash = @PasswordHash";
+                    command.Parameters.AddWithValue("@Usuario", obj.NameUsuario);
+                    command.Parameters.AddWithValue("@PasswordHash", obj.Password);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            usuario = new Usuario
+                            {
+                                IdUsuario = reader["UsuarioID"].ToString(),
+                                NameUsuario = reader["Usuario"].ToString(),
+                                Nombre = reader["Nombre"].ToString(),
+                                Apellido = reader["Apellido"].ToString(),
+                                Email = reader["Email"].ToString(),
+                                Dgv = Convert.ToInt32(reader["DigitoVerificador"])
+                            };
+
+                            // Recuperar permisos del usuario
+                            usuario.Permisos = GetPermisosByUsuarioID(Convert.ToInt32(usuario.IdUsuario));
+                        }
+                    }
                 }
             }
-            catch (Exception ex)
-            {
-                return false;
-            }
+
+            return usuario;
+        }
+
+        public void Update(Usuario obj)
+        {
+            // Implementa la lógica para actualizar un usuario
+            throw new NotImplementedException();
         }
 
         public void Delete(Guid id)
         {
+            // Implementa la lógica para eliminar un usuario
             throw new NotImplementedException();
         }
 
         public IEnumerable<Usuario> SelectAll()
         {
+            // Implementa la lógica para seleccionar todos los usuarios
             throw new NotImplementedException();
         }
 
         public Usuario SelectOne(Guid id)
         {
+            // Implementa la lógica para seleccionar un usuario por su ID
             throw new NotImplementedException();
         }
 
-        public void Update(Usuario obj)
+        private List<Component> GetPermisosByUsuarioID(int usuarioID)
         {
-            throw new NotImplementedException();
-        }
+            List<Component> permisos = new List<Component>();
 
-        //Ver si puedo usar uno de los metodos expuestos x la interfaz
-        public Usuario Login(Usuario obj)
-        {
-
-            if (String.IsNullOrEmpty(obj.Nombre) && String.IsNullOrEmpty(obj.Nombre)) throw new Exception();
-
-            try
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                using (var reader = SqlHelper.ExecuteReader(LoginSelectStatement, System.Data.CommandType.Text,
-                                                new SqlParameter[] { new SqlParameter("@Name", obj.Nombre), new SqlParameter("@Password", obj.Password) }))
+                connection.Open();
+
+                using (SqlCommand command = connection.CreateCommand())
                 {
-                    object[] values = new object[reader.FieldCount];
-                    Usuario user = new Usuario();
+                    command.CommandText = "SELECT P.* FROM Patentes P " +
+                                          "JOIN Usuarios_Patentes UP ON P.PantallaID = UP.PantallaID " +
+                                          "WHERE UP.UsuarioID = @UsuarioID";
+                    command.Parameters.AddWithValue("@UsuarioID", usuarioID);
 
-
-                    if (reader.Read())
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        reader.GetValues(values);
-                        user.IdUsuario = values[0].ToString();
-                        user.Nombre = values[1].ToString();
-                        //Patente patente = new Patente();
-                        //Familia familia = new Familia();
-                        return user;
+                        while (reader.Read())
+                        {
+                            Patente permiso = new Patente
+                            {
+                                FormName = reader["NombrePantalla"].ToString()
+                            };
 
+                            permisos.Add(permiso);
+                        }
                     }
-                    throw new Exception();
                 }
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
 
-
-
+            return permisos;
         }
     }
 }
