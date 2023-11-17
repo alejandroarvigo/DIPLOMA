@@ -41,24 +41,25 @@ namespace UI
         {
             Usuario user = new Usuario { Nombre = "SuperAdmin", Password = "123123123123" };
 
-            //LoginService.Register(user);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Usuario user = new Usuario { NameUsuario = textBox1.Text.Trim(), Password = textBox2.Text.Trim() };
 
-            Usuario userLogged = LoginService.Current.Login(user);
+            try {
+                Usuario user = new Usuario { NameUsuario = textBox1.Text.Trim(), Password = textBox2.Text.Trim() };
 
-            if (userLogged != null) 
-            {
-                HabitacionesHome RoomHomeScreen = new HabitacionesHome();
-                RoomHomeScreen.Show();
-                this.Hide();
+                Usuario userLogged = LoginService.Current.Login(user);
+
+                if (userLogged != null) 
+                {
+                    HabitacionesHome RoomHomeScreen = new HabitacionesHome();
+                    RoomHomeScreen.Show();
+                    this.Hide();
+                }
             }
-            else
-            {
-                MessageBox.Show("Verifica las credenciales");
+            catch (Exception ex){
+                MessageBox.Show(ex.Message);
             }
 
         }

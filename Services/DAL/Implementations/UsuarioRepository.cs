@@ -18,7 +18,6 @@ namespace Services.DAL.Implementations
 
         public bool Add(Usuario obj)
         {
-            // Implementa la lógica para agregar un usuario
             throw new NotImplementedException();
         }
 

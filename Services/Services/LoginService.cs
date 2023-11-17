@@ -36,7 +36,28 @@ namespace Services.Services
         }
         public Usuario Login(Usuario usuario)
         {
-           return instancia.GetUsersRepository().Login(usuario);
+            try
+            {
+                Usuario user = instancia.GetUsersRepository().Login(usuario);
+
+                if (user == null)
+                {
+                    throw new Exception("Error en las credenciales");
+                }
+                return VerificarDV(user) ? user : throw new Exception("Contacta al administrador");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        private bool VerificarDV(Usuario usuario)
+        {
+            decimal DVH = CryptographyService.DVHCalculate(usuario.Apellido.Trim() + usuario.Nombre.Trim() + usuario.Email);
+
+            return DVH == usuario.Dgv;
         }
 
     }

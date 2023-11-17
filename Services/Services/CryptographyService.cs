@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace Services.Services
@@ -18,6 +19,21 @@ namespace Services.Services
                 }
             }
             return sb.ToString();
+        }
+
+        public static decimal DVHCalculate(string message)
+        {
+            byte[] hashValue;
+            UTF8Encoding ue = new UTF8Encoding();
+
+            byte[] messageBytes = ue.GetBytes(message);
+            SHA256 shHash = SHA256.Create();
+
+            hashValue = shHash.ComputeHash(messageBytes);
+
+            decimal valor = hashValue.Sum(o => o);
+            return valor;
+
         }
     }
 }
