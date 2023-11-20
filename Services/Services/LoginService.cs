@@ -44,6 +44,7 @@ namespace Services.Services
                 {
                     throw new Exception("Error en las credenciales");
                 }
+
                 return VerificarDV(user) ? user : throw new Exception("Contacta al administrador");
             }
             catch (Exception ex)

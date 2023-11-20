@@ -11,13 +11,13 @@ using System.Windows.Forms;
 using Domain;
 using Domain.Enums;
 using BLL;
+using Services.DAL.i18n;
+using System.Globalization;
 
 namespace UI
 {
-    public partial class Login : Form
+    public partial class Login : Form, IObserver
     {
-
-        string cultureInfo = Thread.CurrentThread.CurrentUICulture.Name;
         ResourceManager idioma;
         public void populateLanguageCombobox()
         {
@@ -33,8 +33,9 @@ namespace UI
         {
             InitializeComponent();
             populateLanguageCombobox();
-            idioma = FacadeService.Translate(cultureInfo);
+            ObserverLanguage.Current.AgregarObservador(this);
             Translate();
+
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -46,19 +47,21 @@ namespace UI
         private void button1_Click(object sender, EventArgs e)
         {
 
-            try {
+            try
+            {
                 Usuario user = new Usuario { NameUsuario = textBox1.Text.Trim(), Password = textBox2.Text.Trim() };
 
                 Usuario userLogged = LoginService.Current.Login(user);
 
-                if (userLogged != null) 
+                if (userLogged != null)
                 {
                     HabitacionesHome RoomHomeScreen = new HabitacionesHome();
                     RoomHomeScreen.Show();
-                    this.Hide();
+                    //this.Hide();
                 }
             }
-            catch (Exception ex){
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message);
             }
 
@@ -66,6 +69,7 @@ namespace UI
 
         private void Translate()
         {
+            idioma = FacadeService.Translate(Thread.CurrentThread.CurrentCulture.Name);
             this.text1.Text = idioma.GetString("Bienvenido");
             this.text2.Text = idioma.GetString("Usuario");
             this.text3.Text = idioma.GetString("Contrasenia");
@@ -76,8 +80,12 @@ namespace UI
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Language language = (Language)comboBox1.SelectedItem;
-            idioma = FacadeService.Translate(language.Value);
-            Translate();
+
+            // Cambiar la cultura actual del hilo
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(language.Value);
+
+            // Notificar a los observadores del cambio de idioma
+            ObserverLanguage.Current.NotificarObservadores();
         }
 
         private bool verificarCampos()
@@ -92,5 +100,14 @@ namespace UI
             }
         }
 
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void Actualizar()
+        {
+            Translate();
+        }
     }
 }

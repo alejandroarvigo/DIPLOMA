@@ -32,8 +32,8 @@
             dateTimePickerFin = new System.Windows.Forms.DateTimePicker();
             dataGridView1 = new System.Windows.Forms.DataGridView();
             button1 = new System.Windows.Forms.Button();
-            label1 = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
+            lblDesde = new System.Windows.Forms.Label();
+            lblHasta = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -71,37 +71,38 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // label1
+            // lblDesde
             // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(35, 19);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(39, 15);
-            label1.TabIndex = 4;
-            label1.Text = "Desde";
+            lblDesde.AutoSize = true;
+            lblDesde.Location = new System.Drawing.Point(35, 19);
+            lblDesde.Name = "lblDesde";
+            lblDesde.Size = new System.Drawing.Size(39, 15);
+            lblDesde.TabIndex = 4;
+            lblDesde.Text = "Desde";
             // 
-            // label2
+            // lblHasta
             // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(269, 19);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(37, 15);
-            label2.TabIndex = 5;
-            label2.Text = "Hasta";
+            lblHasta.AutoSize = true;
+            lblHasta.Location = new System.Drawing.Point(269, 19);
+            lblHasta.Name = "lblHasta";
+            lblHasta.Size = new System.Drawing.Size(37, 15);
+            lblHasta.TabIndex = 5;
+            lblHasta.Text = "Hasta";
             // 
             // HabitacionesHome
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(800, 450);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(lblHasta);
+            Controls.Add(lblDesde);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
             Controls.Add(dateTimePickerFin);
             Controls.Add(dateTimePickerInicio);
             Name = "HabitacionesHome";
             Text = "Form1";
+            Load += HabitacionesHome_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -113,7 +114,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerFin;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblDesde;
+        private System.Windows.Forms.Label lblHasta;
     }
 }

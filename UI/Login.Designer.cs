@@ -123,7 +123,7 @@
             text4.Size = new System.Drawing.Size(0, 15);
             text4.TabIndex = 8;
             // 
-            // Form1
+            // Login
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -138,8 +138,9 @@
             Controls.Add(button1);
             Controls.Add(btnRegister);
             Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            Name = "Form1";
+            Name = "Login";
             Text = "Form1";
+            Load += Login_Load;
             ResumeLayout(false);
             PerformLayout();
         }

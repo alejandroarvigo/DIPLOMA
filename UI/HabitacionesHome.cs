@@ -8,21 +8,37 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
-using System.Linq;
+using System.Resources;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class HabitacionesHome : Form
+    public partial class HabitacionesHome : Form, IObserver
     {
         private readonly ReservaManager reservaManager;
-
+        ResourceManager idioma;
         public HabitacionesHome()
         {
             InitializeComponent();
             reservaManager = new ReservaManager();
+            ObserverLanguage.Current.AgregarObservador(this);
+            Translate();
+        }
+
+        public void Actualizar()
+        {
+            Translate();
+        }
+
+        private void Translate()
+        {
+            idioma = FacadeService.Translate(Thread.CurrentThread.CurrentCulture.Name); 
+            this.lblDesde.Text = idioma.GetString("Desde");
+            this.lblHasta.Text = idioma.GetString("Hasta");
+            this.button1.Text = idioma.GetString("Buscar");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -51,11 +67,15 @@ namespace UI
             {
                 Habitacion habitacionSeleccionada = (Habitacion)dataGridView1.Rows[e.RowIndex].DataBoundItem;
 
-                ReservaDetalle detallesForm = new ReservaDetalle(habitacionSeleccionada,dateTimePickerInicio.Value, dateTimePickerFin.Value);
+                ReservaDetalle detallesForm = new ReservaDetalle(habitacionSeleccionada, dateTimePickerInicio.Value, dateTimePickerFin.Value);
 
                 detallesForm.Show();
             }
         }
 
+        private void HabitacionesHome_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
