@@ -17,6 +17,7 @@ namespace Services.Domain.Security.Composite
         public string Apellido { get; set; }
         public string Password { get; set; }
 
+        public string DefaultLangague { get; set; }
         public string Email { get; set; }
 
         public int Dgv { get; set; }

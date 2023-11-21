@@ -123,6 +123,9 @@
   <data name="Buscar" xml:space="preserve">
     <value>Search</value>
   </data>
+  <data name="Compras" xml:space="preserve">
+    <value>shopping</value>
+  </data>
   <data name="Contrasenia" xml:space="preserve">
     <value>Password</value>
   </data>
@@ -137,5 +140,8 @@
   </data>
   <data name="Usuario" xml:space="preserve">
     <value>User</value>
+  </data>
+  <data name="Ventas" xml:space="preserve">
+    <value>Sales</value>
   </data>
 </root>

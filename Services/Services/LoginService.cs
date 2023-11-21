@@ -1,7 +1,9 @@
 ﻿using Services.DAL.Factory;
 using Services.DAL.Implementations;
 using Services.DAL.Tools;
+using Services.Domain.Exceptions;
 using Services.Domain.Security.Composite;
+using Services.Facade;
 using System;
 using System.Collections.Generic;
 
@@ -49,6 +51,7 @@ namespace Services.Services
             }
             catch (Exception ex)
             {
+                FacadeService.ManageException(new BLLException(ex));
                 throw ex;
             }
 

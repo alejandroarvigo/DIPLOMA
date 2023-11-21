@@ -19,20 +19,10 @@ namespace UI
     public partial class Login : Form, IObserver
     {
         ResourceManager idioma;
-        public void populateLanguageCombobox()
-        {
-            List<Language> dataSource = new List<Language>();
-            dataSource.Add(new Language() { Name = "ingles", Value = "en-US" });
-            dataSource.Add(new Language() { Name = "español", Value = "es-ES" });
-            this.comboBox1.DataSource = dataSource;
-            this.comboBox1.DataSource = dataSource;
-            this.comboBox1.DisplayMember = "Name";
-            this.comboBox1.ValueMember = "Value";
-        }
+
         public Login()
         {
             InitializeComponent();
-            populateLanguageCombobox();
             ObserverLanguage.Current.AgregarObservador(this);
             Translate();
 
@@ -49,20 +39,20 @@ namespace UI
 
             try
             {
+                if (!verificarCampos()) return;
+
                 Usuario user = new Usuario { NameUsuario = textBox1.Text.Trim(), Password = textBox2.Text.Trim() };
 
                 Usuario userLogged = LoginService.Current.Login(user);
 
                 if (userLogged != null)
                 {
-                    HabitacionesHome RoomHomeScreen = new HabitacionesHome();
+                    MenuPrincipal RoomHomeScreen = new MenuPrincipal(userLogged);
                     RoomHomeScreen.Show();
-                    //this.Hide();
                 }
             }
             catch (Exception ex)
             {
-                FacadeService.ManageException(ex);
                 MessageBox.Show(ex.Message);
             }
 
@@ -74,20 +64,10 @@ namespace UI
             this.text1.Text = idioma.GetString("Bienvenido");
             this.text2.Text = idioma.GetString("Usuario");
             this.text3.Text = idioma.GetString("Contrasenia");
-            this.text4.Text = idioma.GetString("Idioma");
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Language language = (Language)comboBox1.SelectedItem;
-
-            // Cambiar la cultura actual del hilo
-            Thread.CurrentThread.CurrentCulture = new CultureInfo(language.Value);
-
-            // Notificar a los observadores del cambio de idioma
-            ObserverLanguage.Current.NotificarObservadores();
-        }
+   
 
         private bool verificarCampos()
         {

@@ -46,6 +46,7 @@ C:\Users\alear\Downloads\HotelService\UI\obj\Debug\net6.0-windows\UI.Login.resou
 C:\Users\alear\Desktop\HotelService\UI\obj\Debug\net6.0-windows\UI.csproj.AssemblyReference.cache
 C:\Users\alear\Desktop\HotelService\UI\obj\Debug\net6.0-windows\UI.HabitacionesHome.resources
 C:\Users\alear\Desktop\HotelService\UI\obj\Debug\net6.0-windows\UI.Login.resources
+C:\Users\alear\Desktop\HotelService\UI\obj\Debug\net6.0-windows\UI.MenuPrincipal.resources
 C:\Users\alear\Desktop\HotelService\UI\obj\Debug\net6.0-windows\UI.Properties.Resources.resources
 C:\Users\alear\Desktop\HotelService\UI\obj\Debug\net6.0-windows\UI.ReservaDetalle.resources
 C:\Users\alear\Desktop\HotelService\UI\obj\Debug\net6.0-windows\UI.SeleccionCliente.resources

@@ -51,10 +51,10 @@ namespace Services.DAL.Implementations
                                 Nombre = reader["Nombre"].ToString(),
                                 Apellido = reader["Apellido"].ToString(),
                                 Email = reader["Email"].ToString(),
-                                Dgv = Convert.ToInt32(reader["DigitoVerificador"])
+                                Dgv = Convert.ToInt32(reader["DigitoVerificador"]),
+                                DefaultLangague = reader["IdiomaDefault"].ToString()
                             };
 
-                            // Recuperar permisos del usuario
                             usuario.Permisos = GetPermisosByUsuarioID(Convert.ToInt32(usuario.IdUsuario));
                         }
                     }
@@ -66,25 +66,21 @@ namespace Services.DAL.Implementations
 
         public void Update(Usuario obj)
         {
-            // Implementa la lógica para actualizar un usuario
             throw new NotImplementedException();
         }
 
         public void Delete(Guid id)
         {
-            // Implementa la lógica para eliminar un usuario
             throw new NotImplementedException();
         }
 
         public IEnumerable<Usuario> SelectAll()
         {
-            // Implementa la lógica para seleccionar todos los usuarios
             throw new NotImplementedException();
         }
 
         public Usuario SelectOne(Guid id)
         {
-            // Implementa la lógica para seleccionar un usuario por su ID
             throw new NotImplementedException();
         }
 
