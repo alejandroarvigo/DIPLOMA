@@ -35,8 +35,14 @@ namespace Services.DAL.Factory
             object instancia = Activator.CreateInstance(Type.GetType(nombreNamespaceClaseAccesoDatos));
 
             return instancia as UsuarioRepository;
+        }
 
+        public BitacoraRepository GetBitacorasRepository()
+        {
+            string nombreNamespaceClaseAccesoDatos = ConfigurationManager.AppSettings["AccesoDatos"] + ".BitacoraRepository";
+            object instancia = Activator.CreateInstance(Type.GetType(nombreNamespaceClaseAccesoDatos));
 
+            return instancia as BitacoraRepository;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Services.Domain.Bitacora;
+﻿using Services.DAL.Factory;
+using Services.Domain.Bitacora;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace Services.BLL
 
         public void Registrar(Bitacora bitacora)
         {
-            //FactoryDAL.Current.GetBitacoraRepository().Insert(bitacora);
+            FactoryDAL.Current.GetBitacorasRepository().Add(bitacora);
         }
     }
 }

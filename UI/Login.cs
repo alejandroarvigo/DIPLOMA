@@ -62,6 +62,7 @@ namespace UI
             }
             catch (Exception ex)
             {
+                FacadeService.ManageException(ex);
                 MessageBox.Show(ex.Message);
             }
 
