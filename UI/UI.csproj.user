@@ -5,6 +5,12 @@
     <Compile Update="MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ReporteFacturacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Reportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ReservaDetalle.cs">
       <SubType>Form</SubType>
     </Compile>

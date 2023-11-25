@@ -35,7 +35,7 @@ namespace UI
 
         private void Translate()
         {
-            idioma = FacadeService.Translate(Thread.CurrentThread.CurrentCulture.Name); 
+            idioma = FacadeService.Translate(Thread.CurrentThread.CurrentCulture.Name);
             this.lblDesde.Text = idioma.GetString("Desde");
             this.lblHasta.Text = idioma.GetString("Hasta");
             this.button1.Text = idioma.GetString("Buscar");
@@ -74,6 +74,11 @@ namespace UI
         }
 
         private void HabitacionesHome_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

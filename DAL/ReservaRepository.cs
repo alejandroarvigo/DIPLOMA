@@ -2,6 +2,7 @@
 using Domain.Enums;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Reflection.PortableExecutable;
 
 namespace DAL
 {
@@ -115,6 +116,53 @@ namespace DAL
 
             return habitacionesDisponibles.ToArray();
         }
+
+        public ReporteFacturacionModel CalcularReporteFacturacion(DateTime fechaInicio, DateTime fechaFin)
+        {
+            ReporteFacturacionModel reporte = new ReporteFacturacionModel();
+    
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = @"SELECT 
+                                SUM(H.Costo * DATEDIFF(day, R.FechaInicio, R.FechaFin)) as CostoTotal,
+                                COUNT(*) as CantidadReservas
+                             FROM [dbo].[Reservas] R
+                             JOIN [dbo].[Habitaciones] H ON R.HabitacionId = H.NumeroHabitacion
+                             WHERE R.FechaInicio BETWEEN @FechaInicio AND @FechaFin";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@FechaInicio", fechaInicio);
+                    command.Parameters.AddWithValue("@FechaFin", fechaFin);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        if (reader.IsDBNull(0) || reader.IsDBNull(1)) return null;
+
+                        reporte.CostoTotal = reader.GetInt32(0);
+                        reporte.CantidadReservas = reader.GetInt32(1);
+                    }
+
+                    reader.Close();
+                }
+
+                string queryHabitaciones = "SELECT COUNT(DISTINCT HabitacionId) FROM Reservas WHERE FechaInicio BETWEEN @FechaInicio AND @FechaFin";
+
+                using (SqlCommand commandHabitaciones = new SqlCommand(queryHabitaciones, connection))
+                {
+                    commandHabitaciones.Parameters.AddWithValue("@FechaInicio", fechaInicio);
+                    commandHabitaciones.Parameters.AddWithValue("@FechaFin", fechaFin);
+
+                    reporte.CantidadHabitaciones = (int)commandHabitaciones.ExecuteScalar();
+                }
+            }
+
+            return reporte;
+        }
+
 
     }
 }
