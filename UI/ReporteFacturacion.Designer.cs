@@ -67,6 +67,7 @@
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new System.Drawing.Size(705, 281);
             dataGridView1.TabIndex = 4;
+            dataGridView1.CellContentClick += GetReportCsv;
             // 
             // ReporteFacturacion
             // 

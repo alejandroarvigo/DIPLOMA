@@ -20,7 +20,8 @@ namespace DAL
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
 
-                try {
+                try
+                {
                     connection.Open();
 
                     using (SqlCommand command = new SqlCommand("INSERT INTO Reservas (FechaInicio, FechaFin, Estado, HabitacionId, ClienteDni) VALUES (@FechaInicio, @FechaFin, @Estado, @HabitacionId, @ClienteDni)", connection))
@@ -33,7 +34,9 @@ namespace DAL
 
                         command.ExecuteNonQuery();
                     }
-                } catch (Exception ex) {
+                }
+                catch (Exception ex)
+                {
                     Console.WriteLine(ex.ToString());
                 }
 
@@ -120,7 +123,7 @@ namespace DAL
         public ReporteFacturacionModel CalcularReporteFacturacion(DateTime fechaInicio, DateTime fechaFin)
         {
             ReporteFacturacionModel reporte = new ReporteFacturacionModel();
-    
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -163,6 +166,65 @@ namespace DAL
             return reporte;
         }
 
+        public List<ReporteDetalladoModel> ObtenerDetallesReporte(string mes)
+        {
 
+            List<ReporteDetalladoModel> reporteDetalladoModels = new List<ReporteDetalladoModel>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = $@"SELECT 
+                        R.*,
+                        C.*,
+                        H.*,
+                        H.Costo * DATEDIFF(day, R.FechaInicio, R.FechaFin) as CostoTotal
+                    FROM [dbo].[Reservas] R
+                    JOIN [dbo].[Clientes] C ON R.ClienteDni = C.Dni
+                    JOIN [dbo].[Habitaciones] H ON R.HabitacionId = H.NumeroHabitacion
+                    WHERE FORMAT(R.FechaInicio, 'MMMM') = @Mes";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Mes", mes);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        ReporteDetalladoModel detalleReserva = new ReporteDetalladoModel
+                        {
+                            FechaInicio = reader.GetDateTime(reader.GetOrdinal("FechaInicio")),
+                            FechaFin = reader.GetDateTime(reader.GetOrdinal("FechaFin")),
+                            CostoTotal = reader.GetInt32(reader.GetOrdinal("CostoTotal")),
+                        };
+
+                        Habitacion detalleHabitacion = new Habitacion
+                        {
+                            NumeroHabitacion = reader.GetInt32(reader.GetOrdinal("NumeroHabitacion")),
+                            Capacidad = reader.GetInt32(reader.GetOrdinal("Capacidad")),
+                            Detalle = reader.GetString(reader.GetOrdinal("Detalle")),
+                        };
+
+                        Cliente detalleCliente = new Cliente
+                        {
+                            Dni = reader.GetInt32(reader.GetOrdinal("Dni")),
+                            Nombre = reader.GetString(reader.GetOrdinal("Nombre")),
+                            Apellido = reader.GetString(reader.GetOrdinal("Apellido")),
+                            FechaNacimiento = reader.GetDateTime(reader.GetOrdinal("FechaNacimiento")),
+                        };
+
+                        detalleReserva.Cliente = detalleCliente;
+                        detalleReserva.Habitacion = detalleHabitacion;
+                        reporteDetalladoModels.Add(detalleReserva);
+                    }
+
+                    reader.Close();
+                }
+            }
+
+            return reporteDetalladoModels;
+        }
     }
+
 }

@@ -16,11 +16,11 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class HabitacionesHome : Form, IObserver
+    public partial class Reservas : Form, IObserver
     {
         private readonly ReservaManager reservaManager;
         ResourceManager idioma;
-        public HabitacionesHome()
+        public Reservas()
         {
             InitializeComponent();
             reservaManager = new ReservaManager();

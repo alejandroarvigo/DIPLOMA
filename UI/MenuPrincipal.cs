@@ -42,7 +42,7 @@ namespace UI
                 Button button = new Button();
                 button.Text = idioma.GetString(patente.FormName);
                 button.Name = $"{patente.FormName}";
-                button.Click += (sender, e) => AbrirFormulario(); //patente.FormName
+                button.Click += (sender, e) => AbrirFormulario(patente.FormName);
                 button.Width = 120;
                 button.Margin = new Padding(20);
                 flowLayoutPanel.Controls.Add(button);
@@ -51,7 +51,7 @@ namespace UI
             this.Controls.Add(flowLayoutPanel);
         }
 
-        private void AbrirFormulario(string formName = "ReporteFacturacion")
+        private void AbrirFormulario(string formName)
         {
            
             try
@@ -62,7 +62,6 @@ namespace UI
                 {
                     Form formulario = (Form)Activator.CreateInstance(formType);
                     formulario.Show();
-                    this.Hide();
                 }
                 else
                 {

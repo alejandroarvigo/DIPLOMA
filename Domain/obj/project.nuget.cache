@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "gdWTJCJhjSdICVg0MGKep+NjpuewxzPSonVmmRvqJf/tPe1YV0GyORr3HyyvXmIGt5+tG/2KXTZI4GlHy4XaXA==",
+  "dgSpecHash": "OgaQaa053z4dyHg98SDlBPtnz/feqtuYuUVbgeGLD8Z7mUVG0bbSJFgZuhGnZk/4dMrsaqLU5YLflnzqKaCdcg==",
   "success": true,
   "projectFilePath": "C:\\Users\\alear\\Desktop\\HotelService\\Domain\\Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\alear\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

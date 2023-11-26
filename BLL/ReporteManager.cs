@@ -1,10 +1,9 @@
-﻿using DAL;
+﻿using CsvHelper;
+using DAL;
 using Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Services.Facade;
+using System.Globalization;
+using System.Resources;
 
 namespace BLL
 {
@@ -55,6 +54,40 @@ namespace BLL
             return reportes;
 
         }
+
+        public void GenerarYDescargarCSV(string mes)
+        {
+            ResourceManager idioma = FacadeService.Translate("en-US");
+
+            var selectedMonth = idioma.GetString(mes);
+
+            if (selectedMonth == null) return;
+
+            var listaReports = reservaRepository.ObtenerDetallesReporte(selectedMonth);
+
+            if (listaReports == null || listaReports.Count == 0)
+            {
+                return;
+            }
+
+            
+
+            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string csvFileName = Path.Combine(desktopPath, "ReporteDetallado.csv");
+
+            using (TextWriter writer = new StreamWriter(csvFileName))
+            {
+                var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
+
+   
+                csv.WriteHeader<ReporteDetalladoModel>();
+                csv.NextRecord();
+                csv.WriteRecords(listaReports);
+            }
+
+            Console.WriteLine($"Archivo CSV '{csvFileName}' generado con éxito.");
+        }
+
 
     }
 }

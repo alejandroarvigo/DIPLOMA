@@ -49,6 +49,7 @@ namespace UI
                 {
                     MenuPrincipal RoomHomeScreen = new MenuPrincipal(userLogged);
                     RoomHomeScreen.Show();
+                    this.Hide();
                 }
             }
             catch (Exception ex)

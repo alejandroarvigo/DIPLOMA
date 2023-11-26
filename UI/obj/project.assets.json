@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net6.0-windows7.0": {
+      "CsvHelper/30.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CsvHelper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CsvHelper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.CSharp/4.7.0": {
         "type": "package",
         "compile": {
@@ -299,8 +312,10 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "CsvHelper": "30.0.1",
           "DAL": "1.0.0",
-          "Domain": "1.0.0"
+          "Domain": "1.0.0",
+          "Services": "1.0.0"
         },
         "compile": {
           "bin/placeholder/BLL.dll": {}
@@ -327,6 +342,9 @@
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "CsvHelper": "30.0.1"
+        },
         "compile": {
           "bin/placeholder/Domain.dll": {}
         },
@@ -353,6 +371,30 @@
     }
   },
   "libraries": {
+    "CsvHelper/30.0.1": {
+      "sha512": "rcZtgbWR+As4G3Vpgx0AMNmShGuQLFjkHAPIIflzrfkJCx8/AOd4m96ZRmiU1Wi39qS5UVjV0P8qdgqOo5Cwyg==",
+      "type": "package",
+      "path": "csvhelper/30.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "csvhelper.30.0.1.nupkg.sha512",
+        "csvhelper.nuspec",
+        "lib/net45/CsvHelper.dll",
+        "lib/net45/CsvHelper.xml",
+        "lib/net47/CsvHelper.dll",
+        "lib/net47/CsvHelper.xml",
+        "lib/net5.0/CsvHelper.dll",
+        "lib/net5.0/CsvHelper.xml",
+        "lib/net6.0/CsvHelper.dll",
+        "lib/net6.0/CsvHelper.xml",
+        "lib/netstandard2.0/CsvHelper.dll",
+        "lib/netstandard2.0/CsvHelper.xml",
+        "lib/netstandard2.1/CsvHelper.dll",
+        "lib/netstandard2.1/CsvHelper.xml"
+      ]
+    },
     "Microsoft.CSharp/4.7.0": {
       "sha512": "pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
       "type": "package",
@@ -960,6 +1002,7 @@
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
       "BLL >= 1.0.0",
+      "CsvHelper >= 30.0.1",
       "Domain >= 1.0.0",
       "Microsoft.CSharp >= 4.7.0",
       "Services >= 1.0.0",
@@ -1015,6 +1058,10 @@
       "net6.0-windows7.0": {
         "targetAlias": "net6.0-windows",
         "dependencies": {
+          "CsvHelper": {
+            "target": "Package",
+            "version": "[30.0.1, )"
+          },
           "Microsoft.CSharp": {
             "target": "Package",
             "version": "[4.7.0, )"

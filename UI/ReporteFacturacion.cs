@@ -37,5 +37,19 @@ namespace UI
         {
 
         }
+
+        private void GetReportCsv(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.RowIndex >= 0)
+            {
+                ReporteFacturacionModel reporteSelected = (ReporteFacturacionModel)dataGridView1.Rows[e.RowIndex].DataBoundItem;
+
+                ReporteFacturacionDetalle detallesForm = new ReporteFacturacionDetalle(reporteSelected);
+
+                detallesForm.Show();
+
+            }
+        }
     }
 }

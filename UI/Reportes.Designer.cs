@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             button1 = new System.Windows.Forms.Button();
+            button2 = new System.Windows.Forms.Button();
+            Clientes = new System.Windows.Forms.Button();
             SuspendLayout();
             // 
             // button1
@@ -39,12 +41,33 @@
             button1.TabIndex = 0;
             button1.Text = "Facturacion";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new System.Drawing.Point(29, 135);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(105, 28);
+            button2.TabIndex = 1;
+            button2.Text = "Compras";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // Clientes
+            // 
+            Clientes.Location = new System.Drawing.Point(29, 249);
+            Clientes.Name = "Clientes";
+            Clientes.Size = new System.Drawing.Size(105, 28);
+            Clientes.TabIndex = 2;
+            Clientes.Text = "Clientes";
+            Clientes.UseVisualStyleBackColor = true;
             // 
             // Reportes
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(800, 450);
+            ClientSize = new System.Drawing.Size(647, 337);
+            Controls.Add(Clientes);
+            Controls.Add(button2);
             Controls.Add(button1);
             Name = "Reportes";
             Text = "Reportes";
@@ -54,5 +77,7 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Clientes;
     }
 }

@@ -32,3 +32,7 @@ C:\Users\alear\Desktop\HotelService\BLL\obj\Debug\net6.0\BLL.dll
 C:\Users\alear\Desktop\HotelService\BLL\obj\Debug\net6.0\refint\BLL.dll
 C:\Users\alear\Desktop\HotelService\BLL\obj\Debug\net6.0\BLL.pdb
 C:\Users\alear\Desktop\HotelService\BLL\obj\Debug\net6.0\ref\BLL.dll
+C:\Users\alear\Desktop\HotelService\BLL\bin\Debug\net6.0\Services.dll
+C:\Users\alear\Desktop\HotelService\BLL\bin\Debug\net6.0\Services.pdb
+C:\Users\alear\Desktop\HotelService\BLL\bin\Debug\net6.0\en-US\Services.resources.dll
+C:\Users\alear\Desktop\HotelService\BLL\bin\Debug\net6.0\es-ES\Services.resources.dll

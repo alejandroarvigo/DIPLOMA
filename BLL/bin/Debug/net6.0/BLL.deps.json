@@ -8,13 +8,24 @@
     ".NETCoreApp,Version=v6.0": {
       "BLL/1.0.0": {
         "dependencies": {
+          "CsvHelper": "30.0.1",
           "DAL": "1.0.0",
-          "Domain": "1.0.0"
+          "Domain": "1.0.0",
+          "Services": "1.0.0"
         },
         "runtime": {
           "BLL.dll": {}
         }
       },
+      "CsvHelper/30.0.1": {
+        "runtime": {
+          "lib/net6.0/CsvHelper.dll": {
+            "assemblyVersion": "30.0.0.0",
+            "fileVersion": "30.0.1.0"
+          }
+        }
+      },
+      "Microsoft.CSharp/4.7.0": {},
       "Microsoft.NETCore.Platforms/3.1.0": {},
       "Microsoft.Win32.Registry/4.7.0": {
         "dependencies": {
@@ -84,6 +95,7 @@
           }
         }
       },
+      "System.Data.DataSetExtensions/4.5.0": {},
       "System.Data.SqlClient/4.8.5": {
         "dependencies": {
           "Microsoft.Win32.Registry": "4.7.0",
@@ -194,8 +206,30 @@
         }
       },
       "Domain/1.0.0": {
+        "dependencies": {
+          "CsvHelper": "30.0.1"
+        },
         "runtime": {
           "Domain.dll": {}
+        }
+      },
+      "Services/1.0.0": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0",
+          "System.Configuration.ConfigurationManager": "7.0.0",
+          "System.Data.DataSetExtensions": "4.5.0",
+          "System.Data.SqlClient": "4.8.5"
+        },
+        "runtime": {
+          "Services.dll": {}
+        },
+        "resources": {
+          "en-US/Services.resources.dll": {
+            "locale": "en-US"
+          },
+          "es-ES/Services.resources.dll": {
+            "locale": "es-ES"
+          }
         }
       }
     }
@@ -205,6 +239,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "CsvHelper/30.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rcZtgbWR+As4G3Vpgx0AMNmShGuQLFjkHAPIIflzrfkJCx8/AOd4m96ZRmiU1Wi39qS5UVjV0P8qdgqOo5Cwyg==",
+      "path": "csvhelper/30.0.1",
+      "hashPath": "csvhelper.30.0.1.nupkg.sha512"
+    },
+    "Microsoft.CSharp/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
+      "path": "microsoft.csharp/4.7.0",
+      "hashPath": "microsoft.csharp.4.7.0.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/3.1.0": {
       "type": "package",
@@ -262,6 +310,13 @@
       "path": "system.configuration.configurationmanager/7.0.0",
       "hashPath": "system.configuration.configurationmanager.7.0.0.nupkg.sha512"
     },
+    "System.Data.DataSetExtensions/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-221clPs1445HkTBZPL+K9sDBdJRB8UN8rgjO3ztB0CQ26z//fmJXtlsr6whGatscsKGBrhJl5bwJuKSA8mwFOw==",
+      "path": "system.data.datasetextensions/4.5.0",
+      "hashPath": "system.data.datasetextensions.4.5.0.nupkg.sha512"
+    },
     "System.Data.SqlClient/4.8.5": {
       "type": "package",
       "serviceable": true,
@@ -317,6 +372,11 @@
       "sha512": ""
     },
     "Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Services/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

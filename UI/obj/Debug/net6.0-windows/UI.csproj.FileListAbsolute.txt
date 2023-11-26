@@ -76,7 +76,6 @@ C:\Users\alear\Desktop\HotelService\UI\bin\Debug\net6.0-windows\DAL.pdb
 C:\Users\alear\Desktop\HotelService\UI\bin\Debug\net6.0-windows\en-US\Services.resources.dll
 C:\Users\alear\Desktop\HotelService\UI\bin\Debug\net6.0-windows\es-ES\Services.resources.dll
 C:\Users\alear\Desktop\HotelService\UI\obj\Debug\net6.0-windows\UI.csproj.AssemblyReference.cache
-C:\Users\alear\Desktop\HotelService\UI\obj\Debug\net6.0-windows\UI.HabitacionesHome.resources
 C:\Users\alear\Desktop\HotelService\UI\obj\Debug\net6.0-windows\UI.Login.resources
 C:\Users\alear\Desktop\HotelService\UI\obj\Debug\net6.0-windows\UI.MenuPrincipal.resources
 C:\Users\alear\Desktop\HotelService\UI\obj\Debug\net6.0-windows\UI.Properties.Resources.resources
@@ -93,3 +92,6 @@ C:\Users\alear\Desktop\HotelService\UI\obj\Debug\net6.0-windows\refint\UI.dll
 C:\Users\alear\Desktop\HotelService\UI\obj\Debug\net6.0-windows\UI.pdb
 C:\Users\alear\Desktop\HotelService\UI\obj\Debug\net6.0-windows\UI.genruntimeconfig.cache
 C:\Users\alear\Desktop\HotelService\UI\obj\Debug\net6.0-windows\ref\UI.dll
+C:\Users\alear\Desktop\HotelService\UI\obj\Debug\net6.0-windows\UI.Reservas.resources
+C:\Users\alear\Desktop\HotelService\UI\obj\Debug\net6.0-windows\UI.ReporteFacturacionDetalle.resources
+C:\Users\alear\Desktop\HotelService\UI\bin\Debug\net6.0-windows\CsvHelper.dll

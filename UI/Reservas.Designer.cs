@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class HabitacionesHome
+    partial class Reservas
     {
         /// <summary>
         /// Required designer variable.

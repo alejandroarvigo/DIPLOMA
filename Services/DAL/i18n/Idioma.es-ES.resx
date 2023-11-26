@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Abril" xml:space="preserve">
+    <value>Abril</value>
+  </data>
+  <data name="Agosto" xml:space="preserve">
+    <value>Agosto</value>
+  </data>
   <data name="Bienvenido" xml:space="preserve">
     <value>Bienvenido</value>
   </data>
@@ -132,11 +138,47 @@
   <data name="Desde" xml:space="preserve">
     <value>Desde</value>
   </data>
+  <data name="Diciembre" xml:space="preserve">
+    <value>Diciembre</value>
+  </data>
+  <data name="Enero" xml:space="preserve">
+    <value>Enero</value>
+  </data>
+  <data name="Febrero" xml:space="preserve">
+    <value>Febrero</value>
+  </data>
   <data name="Hasta" xml:space="preserve">
     <value>Hasta</value>
   </data>
   <data name="Idioma" xml:space="preserve">
     <value>Idioma</value>
+  </data>
+  <data name="Julio" xml:space="preserve">
+    <value>Julio</value>
+  </data>
+  <data name="Junio" xml:space="preserve">
+    <value>Junio</value>
+  </data>
+  <data name="Marzo" xml:space="preserve">
+    <value>Marzo</value>
+  </data>
+  <data name="Mayo" xml:space="preserve">
+    <value>Mayo</value>
+  </data>
+  <data name="Noviembre" xml:space="preserve">
+    <value>Noviembre</value>
+  </data>
+  <data name="Octubre" xml:space="preserve">
+    <value>Octubre</value>
+  </data>
+  <data name="Reportes" xml:space="preserve">
+    <value>Reportes</value>
+  </data>
+  <data name="Reservas" xml:space="preserve">
+    <value>Reservas</value>
+  </data>
+  <data name="Septiembre" xml:space="preserve">
+    <value>Septiembre</value>
   </data>
   <data name="Usuario" xml:space="preserve">
     <value>Usuario</value>
